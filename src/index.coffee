@@ -18,6 +18,7 @@ class VersionBrunch
     @options =
       versionFile: "version.json"
       fileRegExp: /(app\.js|index\.html)$/
+      fileVersionField: ""
 
     # Merge config
     cfg = @config.plugins?.version ? @config.version ? {}
@@ -86,6 +87,18 @@ class VersionBrunch
           resultContent = resultContent.replace keywordRE, val
         # write back
         fs.writeFileSync f, resultContent, "utf-8"
+
+
+    # save version in specified json files, with version field.
+    if @options.fileVersionField
+      try
+        fileVersionField = JSON.parse fs.readFileSync @options.fileVersionField, "utf-8"
+
+        fileVersionField.version = version.versionExt
+        fs.writeFileSync @options.fileVersionField, JSON.stringify fileVersionField, undefined, 2
+      catch e
+        console.error "Error while writing version field.", e
+
     return
 
 module.exports = VersionBrunch

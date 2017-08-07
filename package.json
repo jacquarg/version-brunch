@@ -1,6 +1,6 @@
 {
   "name": "version-brunch",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Adds application version support to brunch.io",
   "author": "Andrej Debeljak",
   "homepage": "https://github.com/andrejd/version-brunch",

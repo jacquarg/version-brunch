@@ -1,3 +1,7 @@
+# version-brunch 1.1.0 (14. January 2015)
+  Add fileVersionField option: to update version value in a json file.
+
+
 # version-brunch 1.0.1 (14. January 2015)
   Version bump due to maintenance.
 

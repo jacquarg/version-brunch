@@ -26,6 +26,8 @@ Plugin also scans generated source files inside `public` folder after each bulid
 and replaces `{!major!}` `{!minor!}` `{!maintenance!}` `{!build!}` strings with
 parsed values from `version.json` file.
 
+Or replace the version field value in any specified JSON file.
+
 ### Configuration
 
 There are some options that allow changing plugin defaults. You can add these
@@ -37,7 +39,7 @@ config =
         version:
             versionFile: "version.json"
             fileRegExp: /(app\.js|index\.html)$/
-
+            fileVersionField: ""
 ```
 
 After compilation all files in `public` folder are tested against `fileRegExp`
