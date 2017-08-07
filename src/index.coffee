@@ -94,7 +94,7 @@ class VersionBrunch
       try
         fileVersionField = JSON.parse fs.readFileSync @options.fileVersionField, "utf-8"
 
-        fileVersionField.version = version.versionExt
+        fileVersionField.version = version.versionExt.split('.').slice(0, 3).join('.')
         fs.writeFileSync @options.fileVersionField, JSON.stringify fileVersionField, undefined, 2
       catch e
         console.error "Error while writing version field.", e
